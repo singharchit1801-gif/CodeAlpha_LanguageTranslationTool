@@ -1,0 +1,26 @@
+from deep_translator import GoogleTranslator
+
+# Get input from the user
+text = input("Please enter the text: ")
+
+# Ask for the target language
+target_language = input(
+    "Enter the language you want to translate to (e.g., hindi, french, spanish, german): "
+)
+
+try:
+    # Translate the text
+    translated_text = GoogleTranslator(
+        source='auto',
+        target=target_language.lower()
+    ).translate(text)
+
+    print("\nOriginal Text:")
+    print(text)
+
+    print("\nTranslated Text:")
+    print(translated_text)
+
+except Exception as e:
+    print("Error:", e)
+    print("Please enter a valid language name.")
